@@ -6,7 +6,7 @@ import org.apache.jena.rdf.model.ModelFactory;
 public class Write2OtherFormat {
 
 	public static void main(String[] args) {
-		write2OtherFormat("assets/data.rdf");
+		write2OtherFormat("assets/foaf-a-matic.rdf");
 	}
 	
 	static void write2OtherFormat(String rdfFile) {
@@ -14,8 +14,8 @@ public class Write2OtherFormat {
 		OntModel model = ModelFactory.createOntologyModel();
 		model.read(rdfFile, "RDF/XML");
 		
-		//model.write(System.out, "TURTLE");
-		model.write(System.out, "RDF/JSON");
+		model.write(System.out, "TURTLE");
+		//model.write(System.out, "RDF/JSON");
 	}
 
 }

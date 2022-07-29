@@ -14,6 +14,21 @@
 			<version>4.5.0</version>
 			<type>pom</type>
 		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.aksw.jena-sparql-api/jena-sparql-api-rx -->
+		<dependency>
+			<groupId>org.aksw.jena-sparql-api</groupId>
+			<artifactId>jena-sparql-api-rx</artifactId>
+			<version>3.17.0-1</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.aksw.jenax/jenax-arq-algebra -->
+		<dependency>
+			<groupId>org.aksw.jenax</groupId>
+			<artifactId>jenax-arq-algebra</artifactId>
+			<version>4.4.0-2</version>
+		</dependency>
+
 	</dependencies>
 
 </project>

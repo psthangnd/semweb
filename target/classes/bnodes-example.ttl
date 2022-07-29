@@ -1,0 +1,28 @@
+# https://en.wikipedia.org/wiki/Blank_node
+
+PREFIX ex: <http://www.example.org/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+<http://example.org/web-data>
+
+	ex:title = "Web data" ;
+	ex:professor _:entity ;
+	ex:students _:students ;
+	#ex:generatedBy _:activity1 .
+	
+_:entity
+	ex:fullName "Alice Carol" ;
+	ex:hasAddress _:address .
+	
+_:address
+	a ex:Address ;
+	ex:streetAddress "123 Main St." ;
+	ex:postalCode "100000" ;
+	
+_:students
+	a rdf:Bag ;
+	ex:hasMember _:s1 ;
+	ex:hasMember _:s2 ;
+	
+#_:activity1
+	
