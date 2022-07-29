@@ -1,0 +1,206 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ns0: <http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#> .
+
+<http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine>
+  a owl:Ontology ;
+  rdfs:comment "An example OWL ontology", """Derived from the DAML Wine ontology at 
+      http://ontolingua.stanford.edu/doc/chimaera/ontologies/wines.daml
+      Substantially changed, in particular the Region based relations.
+    """ ;
+  owl:priorVersion <http://www.w3.org/TR/2003/CR-owl-guide-20030818/wine> ;
+  owl:imports <http://www.w3.org/TR/2003/PR-owl-guide-20031209/food> ;
+  rdfs:label "Wine Ontology" .
+
+<http://www.w3.org/TR/2003/CR-owl-guide-20030818/wine> a owl:Ontology .
+<http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Wine>
+  a owl:Class ;
+  rdfs:subClassOf <http://www.w3.org/TR/2003/PR-owl-guide-20031209/food#PotableLiquid>, [
+    a owl:Restriction ;
+    owl:onProperty <http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#hasMaker> ;
+    owl:cardinality "1"^^xsd:nonNegativeInteger
+  ], [
+    a owl:Restriction ;
+    owl:onProperty <http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#hasMaker> ;
+    owl:allValuesFrom <http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Winery>
+  ], [
+    a owl:Restriction ;
+    owl:onProperty <http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#madeFromGrape> ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger
+  ], [
+    a owl:Restriction ;
+    owl:onProperty <http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#hasSugar> ;
+    owl:cardinality "1"^^xsd:nonNegativeInteger
+  ], [
+    a owl:Restriction ;
+    owl:onProperty <http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#hasFlavor> ;
+    owl:cardinality "1"^^xsd:nonNegativeInteger
+  ], [
+    a owl:Restriction ;
+    owl:onProperty <http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#hasBody> ;
+    owl:cardinality "1"^^xsd:nonNegativeInteger
+  ], [
+    a owl:Restriction ;
+    owl:onProperty <http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#hasColor> ;
+    owl:cardinality "1"^^xsd:nonNegativeInteger
+  ], [
+    a owl:Restriction ;
+    owl:onProperty <http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#locatedIn> ;
+    owl:someValuesFrom <http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Region>
+  ] ;
+  rdfs:label "wine"@en, "vin"@fr .
+
+<http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Vintage>
+  a owl:Class ;
+  rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty <http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#hasVintageYear> ;
+    owl:cardinality "1"^^xsd:nonNegativeInteger
+  ] .
+
+<http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#WineGrape>
+  a owl:Class ;
+  rdfs:subClassOf <http://www.w3.org/TR/2003/PR-owl-guide-20031209/food#Grape> .
+
+<http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#WhiteWine>
+  a owl:Class ;
+  owl:intersectionOf (
+   <http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Wine>
+   _:genid11
+ ) .
+
+<http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#WhiteTableWine>
+  a owl:Class ;
+  owl:intersectionOf (
+   <http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#TableWine>
+   _:genid14
+ ) .
+
+<http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#TableWine>
+  a owl:Class ;
+  owl:intersectionOf (
+   <http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Wine>
+   _:genid74
+ ) .
+
+<http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#WhiteNonSweetWine>
+  a owl:Class ;
+  owl:intersectionOf (
+   <http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#WhiteWine>
+   _:genid17
+ ) .
+
+<http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Dry> a owl:Thing, <http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#WineSugar> .
+<http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#OffDry>
+  a owl:Thing, <http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#WineSugar> ;
+  owl:differentFrom <http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Dry>, <http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Sweet> .
+
+<http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#WhiteLoire>
+  a owl:Class ;
+  owl:intersectionOf (
+   <http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Loire>
+   <http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#WhiteWine>
+ ) ;
+  rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty <http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#madeFromGrape> ;
+    owl:allValuesFrom [
+      a owl:Class ;
+      owl:oneOf (
+       <http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#CheninBlancGrape>
+       <http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#PinotBlancGrape>
+       <http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SauvignonBlancGrape>
+     )
+    ]
+  ] .
+
+<http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Loire>
+  a owl:Class ;
+  owl:intersectionOf (
+   <http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Wine>
+   _:genid240
+ ) .
+
+<http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#CheninBlancGrape> a owl:Thing, <http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#WineGrape> .
+<http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#PinotBlancGrape> a owl:Thing, <http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#WineGrape> .
+<http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SauvignonBlancGrape> a owl:Thing, <http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#WineGrape> .
+<http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#WhiteBurgundy>
+  a owl:Class ;
+  owl:intersectionOf (
+   <http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Burgundy>
+   <http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#WhiteWine>
+ ) ;
+  rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty <http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#madeFromGrape> ;
+    owl:hasValue <http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#ChardonnayGrape>
+  ], [
+    a owl:Restriction ;
+    owl:onProperty <http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#madeFromGrape> ;
+    owl:maxCardinality "1"^^xsd:nonNegativeInteger
+  ] .
+
+<http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Burgundy>
+  a owl:Class ;
+  owl:intersectionOf (
+   <http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Wine>
+   _:genid373
+ ) ;
+  rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty <http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#hasSugar> ;
+    owl:hasValue <http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Dry>
+  ] .
+
+<http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#WhiteBordeaux>
+  a owl:Class ;
+  owl:intersectionOf (
+   <http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Bordeaux>
+   <http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#WhiteWine>
+ ) ;
+  rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty <http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#madeFromGrape> ;
+    owl:allValuesFrom [
+      a owl:Class ;
+      owl:oneOf (
+       <http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SemillonGrape>
+       <http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SauvignonBlancGrape>
+     )
+    ]
+  ] .
+
+<http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Bordeaux>
+  a owl:Class ;
+  owl:intersectionOf (
+   <http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Wine>
+   _:genid377
+ ) .
+
+<http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SemillonGrape> a owl:Thing, <http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#WineGrape> .
+<http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Region> a owl:Class .
+<http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#locatedIn>
+  a owl:ObjectProperty, owl:TransitiveProperty ;
+  rdfs:domain owl:Thing ;
+  rdfs:range <http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Region> .
+
+<http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#adjacentRegion>
+  a owl:ObjectProperty, owl:SymmetricProperty ;
+  rdfs:domain <http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Region> ;
+  rdfs:range <http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Region> .
+
+<http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#VintageYear> a owl:Class .
+<http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#yearValue>
+  a owl:DatatypeProperty ;
+  rdfs:domain <http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#VintageYear> ;
+  rdfs:range xsd:positiveInteger .
+
+<http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Year1998>
+  a <http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#VintageYear> ;
+  ns0:yearValue "1998"^^xsd:positiveInteger .
+
+ns0:hasVintageYear
+  a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ns0:Vintage ;
+  rdfs:range ns0:VintageYear .
