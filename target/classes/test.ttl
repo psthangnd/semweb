@@ -1,6 +1,17 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix sw: <http://hust.edu.vn/semweb#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
 
 sw:Teacher rdf:type rdfs:Class;
     rdfs:subClassOf sw:StaffMember .
+
+sw:Student rdf:type rdfs:Class;
+    rdfs:subClassOf sw:Students .
+
+sw:ThangND
+  a foaf:Person ;
+  foaf:name "Thang Nguyen Duc" ;
+  foaf:title "Mr." ;
+  foaf:givenname "Thang" ;
+  foaf:family_name "Nguyen Duc" .
