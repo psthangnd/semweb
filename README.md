@@ -37,3 +37,10 @@ https://dlcdn.apache.org/jena/binaries/apache-jena-4.5.0.zip
 # An Introduction to RDF and the Jena RDF API
 https://jena.apache.org/getting_started/index.html
 https://jena.apache.org/tutorials/rdf_api.html
+
+
+# Apache fuseki
+1. Run
+fuseki-server --update --mem /ds
+
+http://localhost:3030/
