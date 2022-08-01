@@ -1,0 +1,13 @@
+@prefix ep: <http://example.com/epistimology> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema> .
+@prefix : <#>.
+
+:alice ep:believes
+   [
+        a rdf:Statement;
+        rdf:subject :bob;
+        rdf:predicate :loves;
+        rdf:object :carol;
+        rdf:certainty "50"^^xsd:integer
+    ] .

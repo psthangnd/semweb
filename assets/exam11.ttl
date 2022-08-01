@@ -1,0 +1,17 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix s:   <http://example.org/students/vocab#>.
+
+<http://example.org/courses/6.001>
+  s:students[
+    a rdf:List;
+        rdf:first <http://example.org/students/Amy>;
+        rdf:rest [
+            a rdf:list;
+            rdf:first <http://example.org/students/Mohamed>;
+            rdf:rest [
+                a rdf:List;
+                rdf:first <http://example.org/students/Johann>;
+                rdf:rest rdf:nil 
+            ]
+        ]
+    ] .

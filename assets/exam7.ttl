@@ -1,0 +1,16 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix bio: <http://example.com/biology#> .
+
+bio:Animal a rdfs:Class.
+
+bio:offspring a rdfs:Property;
+    rdfs:domain bio:Animal;
+    rdfs:range bio:Animal.
+
+bio:Cat rdfs:subClassOf bio:Animal.
+bio:Dog rdfs:subClassOf bio:Animal.
+
+_:milo a bio:Animal , bio:Cat ;
+        bio:offspring _:fido .
+_:fido a bio:Animal , bio:Dog .

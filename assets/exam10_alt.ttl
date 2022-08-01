@@ -1,0 +1,10 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix s:   <http://example.org/packages/vocab#>.
+
+<http://example.org/packages/X11>
+    s:DistributionSite [
+        a rdf:Alt;
+        rdf:_1 <ftp://ftp.example.org>;
+        rdf:_2 <ftp://ftp1.example.org>;
+        rdf:_3 <ftp://ftp2.example.org>;
+    ].

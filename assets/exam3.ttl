@@ -1,0 +1,10 @@
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix ns: <http://daml.umbc.edu/ontologies/bib/> .
+
+<http://umbc.edu/~finin/talks/idm02/>
+  dc:title "Intelligent Information Systems on the Web " ;
+  dc:creator [
+    ns:name "Tim Finin" ;
+    ns:email "finin@umbc.edu" ;
+    ns:aff <http://umbc.edu/>
+  ] .

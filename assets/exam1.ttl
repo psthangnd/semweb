@@ -1,0 +1,26 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+
+@prefix ct: <http://www.w3.org/People/EM/contact/#> .
+
+ct:Person rdf:type rdfs:Class;
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onProperty <http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#madeFromGrape> ;
+        owl:hasValue <http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#ChardonnayGrape>
+    ], [
+        a owl:Restriction ;
+        owl:onProperty <http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#madeFromGrape>
+    ] .
+
+ct:me a rdfs:Class;
+    rdfs:subClassOf[
+        foaf:type "http://www/w3/org/2000/10/swap/pim/contact/#Person" ;
+        foaf:fullName "Eric Miller" ;
+        foaf:mailbox "mailto:em@w3.org" ;
+        foaf:personalTitle "Dr."
+    ], [
+
+    ] .
