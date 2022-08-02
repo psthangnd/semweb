@@ -41,6 +41,6 @@ https://jena.apache.org/tutorials/rdf_api.html
 
 # Apache fuseki
 1. Run
-fuseki-server --update --mem /ds
-
-http://localhost:3030/
+	fuseki-server --update --mem /ds
+2. Truy cập:
+	http://localhost:3030/
