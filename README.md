@@ -11,6 +11,9 @@ http://ldodds.com/foaf/foaf-a-matic.en.html
 4. Ref Github:
 https://github.com/SmartDataAnalytics
 
+5. Riot:
+https://jena.apache.org/documentation/io/
+
 # Install
 1. Download and install Java
 - Download:
@@ -21,14 +24,19 @@ https://www.oracle.com/java/technologies/downloads/#jdk18-windows
 	java --version
 	where java
 
-2. Download and install Java Jena
+2. Download and install Apache Jena
 - Download:
 https://dlcdn.apache.org/jena/binaries/apache-jena-4.5.0.zip
-- Giải nén và add vào Claspatch (Wins)
-	D:\Softwares\apache-jena-4.5.0\bin
+- Giải nén và add vào Classpath cho JENA_HOME
+Name: JENA_HOME
+Value: D:\Softwares\apache-jena-4.5.0\
+- Add Classpath cho riot (để dùng riot ở bất kỳ đâu):
 	D:\Softwares\apache-jena-4.5.0\bat
 - Confirm
 	riot --version
+- Chạy lệnh riot:
+	riot test.ttl
+	riot --formatted=RDF/XML 4.1.ttl
 
 3. Eclipse setting
 - Dùng maven để download và quản lý Libs

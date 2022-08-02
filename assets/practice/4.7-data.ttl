@@ -1,0 +1,3 @@
+@prefix : <http://www.hust.edu.vn/thangnd#> .
+
+: a :Professor .
