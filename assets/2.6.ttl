@@ -1,0 +1,11 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix s:   <http://example.org/packages/vocab#>.
+
+@prefix ex: <http://www.example.org/>
+
+ex:sabastian rds:type ex:AllergicToNuts
+    rdfs:subClassOf [
+        a ex:Pitiable
+    ]
+
+    #ex:eats ex:vegatableThaiCurry

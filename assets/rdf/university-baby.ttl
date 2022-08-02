@@ -1,0 +1,383 @@
+@prefix : <http://www.semanticweb.org/baby/ontologies/2019/4/university#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/baby/ontologies/2019/4/university> .
+
+<http://www.semanticweb.org/baby/ontologies/2019/4/university> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/baby/ontologies/2019/4/university#assist
+:assist rdf:type owl:ObjectProperty ;
+        rdfs:domain :Staff ;
+        rdfs:range :Position .
+
+
+###  http://www.semanticweb.org/baby/ontologies/2019/4/university#hasJob
+:hasJob rdf:type owl:ObjectProperty ;
+        rdfs:domain :Staff ;
+        rdfs:range :Jobs .
+
+
+###  http://www.semanticweb.org/baby/ontologies/2019/4/university#hasPosition
+:hasPosition rdf:type owl:ObjectProperty ;
+             rdfs:domain :Staff ;
+             rdfs:range :Position .
+
+
+###  http://www.semanticweb.org/baby/ontologies/2019/4/university#lead
+:lead rdf:type owl:ObjectProperty ;
+      rdfs:subPropertyOf owl:topObjectProperty ;
+      rdfs:domain :Position ;
+      rdfs:range :Organization .
+
+
+###  http://www.semanticweb.org/baby/ontologies/2019/4/university#studies
+:studies rdf:type owl:ObjectProperty ;
+         rdfs:domain :Student ;
+         rdfs:range :Course .
+
+
+###  http://www.semanticweb.org/baby/ontologies/2019/4/university#supervise
+:supervise rdf:type owl:ObjectProperty ;
+           rdfs:domain :Staff ;
+           rdfs:range :Student .
+
+
+###  http://www.semanticweb.org/baby/ontologies/2019/4/university#supervisedBy
+:supervisedBy rdf:type owl:ObjectProperty ;
+              rdfs:domain :Student ;
+              rdfs:range :Staff .
+
+
+###  http://www.semanticweb.org/baby/ontologies/2019/4/university#teaches
+:teaches rdf:type owl:ObjectProperty ;
+         rdfs:domain :Staff ;
+         rdfs:range :Course .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/baby/ontologies/2019/4/university#courseName
+:courseName rdf:type owl:DatatypeProperty ;
+            rdfs:domain :Course .
+
+
+###  http://www.semanticweb.org/baby/ontologies/2019/4/university#departmentName
+:departmentName rdf:type owl:DatatypeProperty ;
+                rdfs:domain :Department .
+
+
+###  http://www.semanticweb.org/baby/ontologies/2019/4/university#facultyName
+:facultyName rdf:type owl:DatatypeProperty ;
+             rdfs:domain :Faculty .
+
+
+###  http://www.semanticweb.org/baby/ontologies/2019/4/university#jobName
+:jobName rdf:type owl:DatatypeProperty ;
+         rdfs:domain :Jobs .
+
+
+###  http://www.semanticweb.org/baby/ontologies/2019/4/university#name
+:name rdf:type owl:DatatypeProperty ;
+      rdfs:domain :Person .
+
+
+###  http://www.semanticweb.org/baby/ontologies/2019/4/university#studyprogramName
+:studyprogramName rdf:type owl:DatatypeProperty ;
+                  rdfs:domain :StudyProgram .
+
+
+###  http://www.semanticweb.org/baby/ontologies/2019/4/university#totalParticipant
+:totalParticipant rdf:type owl:DatatypeProperty ;
+                  rdfs:domain :Course .
+
+
+###  http://www.semanticweb.org/baby/ontologies/2019/4/university#universityName
+:universityName rdf:type owl:DatatypeProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/baby/ontologies/2019/4/university#Course
+:Course rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/baby/ontologies/2019/4/university#Dean
+:Dean rdf:type owl:Class ;
+      rdfs:subClassOf :Staff .
+
+
+###  http://www.semanticweb.org/baby/ontologies/2019/4/university#Department
+:Department rdf:type owl:Class ;
+            rdfs:subClassOf :Organization .
+
+
+###  http://www.semanticweb.org/baby/ontologies/2019/4/university#DepartmentLeader
+:DepartmentLeader rdf:type owl:Class ;
+                  rdfs:subClassOf :Position .
+
+
+###  http://www.semanticweb.org/baby/ontologies/2019/4/university#Faculty
+:Faculty rdf:type owl:Class ;
+         rdfs:subClassOf :Organization .
+
+
+###  http://www.semanticweb.org/baby/ontologies/2019/4/university#FacultyLeader
+:FacultyLeader rdf:type owl:Class ;
+               rdfs:subClassOf :Position .
+
+
+###  http://www.semanticweb.org/baby/ontologies/2019/4/university#HeadOfDepartement
+:HeadOfDepartement rdf:type owl:Class ;
+                   rdfs:subClassOf :Staff .
+
+
+###  http://www.semanticweb.org/baby/ontologies/2019/4/university#HeadOfStudyProgram
+:HeadOfStudyProgram rdf:type owl:Class ;
+                    rdfs:subClassOf :Staff .
+
+
+###  http://www.semanticweb.org/baby/ontologies/2019/4/university#Jobs
+:Jobs rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/baby/ontologies/2019/4/university#Organization
+:Organization rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/baby/ontologies/2019/4/university#Person
+:Person rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/baby/ontologies/2019/4/university#Position
+:Position rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/baby/ontologies/2019/4/university#Rector
+:Rector rdf:type owl:Class ;
+        rdfs:subClassOf :Staff .
+
+
+###  http://www.semanticweb.org/baby/ontologies/2019/4/university#Staff
+:Staff rdf:type owl:Class ;
+       rdfs:subClassOf :Person .
+
+
+###  http://www.semanticweb.org/baby/ontologies/2019/4/university#Student
+:Student rdf:type owl:Class ;
+         rdfs:subClassOf :Person .
+
+
+###  http://www.semanticweb.org/baby/ontologies/2019/4/university#StudyProgram
+:StudyProgram rdf:type owl:Class ;
+              rdfs:subClassOf :Organization .
+
+
+###  http://www.semanticweb.org/baby/ontologies/2019/4/university#StudyProgramLeader
+:StudyProgramLeader rdf:type owl:Class ;
+                    rdfs:subClassOf :Position .
+
+
+###  http://www.semanticweb.org/baby/ontologies/2019/4/university#University
+:University rdf:type owl:Class ;
+            rdfs:subClassOf :Organization .
+
+
+###  http://www.semanticweb.org/baby/ontologies/2019/4/university#UniversityLeader
+:UniversityLeader rdf:type owl:Class ;
+                  rdfs:subClassOf :Position .
+
+
+###  http://www.semanticweb.org/baby/ontologies/2019/4/university#ViceOfDean
+:ViceOfDean rdf:type owl:Class ;
+            rdfs:subClassOf :Staff .
+
+
+###  http://www.semanticweb.org/baby/ontologies/2019/4/university#ViceOfRector
+:ViceOfRector rdf:type owl:Class ;
+              rdfs:subClassOf :Staff .
+
+
+###  http://www.semanticweb.org/baby/ontologies/2019/4/university#ViceOfRector1
+:ViceOfRector1 rdf:type owl:Class ;
+               rdfs:subClassOf :ViceOfRector .
+
+
+###  http://www.semanticweb.org/baby/ontologies/2019/4/university#ViceOfRector2
+:ViceOfRector2 rdf:type owl:Class ;
+               rdfs:subClassOf :ViceOfRector .
+
+
+###  http://www.semanticweb.org/baby/ontologies/2019/4/university#ViceOfRector3
+:ViceOfRector3 rdf:type owl:Class ;
+               rdfs:subClassOf :ViceOfRector .
+
+
+###  http://www.semanticweb.org/baby/ontologies/2019/4/university#ViceOfRector4
+:ViceOfRector4 rdf:type owl:Class ;
+               rdfs:subClassOf :ViceOfRector .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/baby/ontologies/2019/4/university#Course1
+:Course1 rdf:type owl:NamedIndividual ,
+                  :Course ;
+         :courseName "SemantikWeb"^^xsd:string ;
+         :totalParticipant 50 .
+
+
+###  http://www.semanticweb.org/baby/ontologies/2019/4/university#Course2
+:Course2 rdf:type owl:NamedIndividual ,
+                  :Course ;
+         :courseName "JaringanKomputer"^^xsd:string ;
+         :totalParticipant 52 .
+
+
+###  http://www.semanticweb.org/baby/ontologies/2019/4/university#Course3
+:Course3 rdf:type owl:NamedIndividual ,
+                  :Course ;
+         :courseName "SistemDatabase"^^xsd:string ;
+         :totalParticipant 60 .
+
+
+###  http://www.semanticweb.org/baby/ontologies/2019/4/university#Department1
+:Department1 rdf:type owl:NamedIndividual ,
+                      :Department ;
+             :departmentName "ComputerScience"^^xsd:string .
+
+
+###  http://www.semanticweb.org/baby/ontologies/2019/4/university#DepartmentLeader1
+:DepartmentLeader1 rdf:type owl:NamedIndividual ,
+                            :DepartmentLeader ;
+                   :lead :Department1 .
+
+
+###  http://www.semanticweb.org/baby/ontologies/2019/4/university#Faculty1
+:Faculty1 rdf:type owl:NamedIndividual ,
+                   :Faculty ;
+          :facultyName "NaturalScience"^^xsd:string .
+
+
+###  http://www.semanticweb.org/baby/ontologies/2019/4/university#FacultyLeader1
+:FacultyLeader1 rdf:type owl:NamedIndividual ,
+                         :FacultyLeader ;
+                :lead :Faculty1 .
+
+
+###  http://www.semanticweb.org/baby/ontologies/2019/4/university#Job1
+:Job1 rdf:type owl:NamedIndividual ,
+               :Jobs ;
+      :teaches :Course2 ;
+      :jobName "Lecturer"^^xsd:string .
+
+
+###  http://www.semanticweb.org/baby/ontologies/2019/4/university#Staff1
+:Staff1 rdf:type owl:NamedIndividual ,
+                 :Staff ;
+        :hasJob :Job1 ;
+        :supervise :Student1 ;
+        :teaches :Course2 ;
+        :name "Mr.Rudi"^^xsd:string .
+
+
+###  http://www.semanticweb.org/baby/ontologies/2019/4/university#Staff2
+:Staff2 rdf:type owl:NamedIndividual ,
+                 :Staff ;
+        :hasJob :Job1 ;
+        :teaches :Course1 ,
+                 :Course2 ;
+        :name "Mr.Adit"^^xsd:string .
+
+
+###  http://www.semanticweb.org/baby/ontologies/2019/4/university#Staff3
+:Staff3 rdf:type owl:NamedIndividual ,
+                 :Staff ;
+        :hasJob :Job1 ;
+        :name "Mrs.Mira"^^xsd:string .
+
+
+###  http://www.semanticweb.org/baby/ontologies/2019/4/university#Staff4
+:Staff4 rdf:type owl:NamedIndividual ,
+                 :Staff ;
+        :hasJob :Job1 ;
+        :hasPosition :StudyProgramLeader1 ;
+        :teaches :Course3 ;
+        :name "Mr.Juli"^^xsd:string .
+
+
+###  http://www.semanticweb.org/baby/ontologies/2019/4/university#Staff5
+:Staff5 rdf:type owl:NamedIndividual ,
+                 :Staff ;
+        :hasJob :Job1 ;
+        :name "Mr.Setiawan"^^xsd:string .
+
+
+###  http://www.semanticweb.org/baby/ontologies/2019/4/university#Staff6
+:Staff6 rdf:type owl:NamedIndividual ,
+                 :Staff ;
+        :assist :UniversityLeader1 ;
+        :hasJob :Job1 ;
+        :name "Mr.John"^^xsd:string .
+
+
+###  http://www.semanticweb.org/baby/ontologies/2019/4/university#Student1
+:Student1 rdf:type owl:NamedIndividual ,
+                   :Student ;
+          :studies :Course1 ,
+                   :Course2 ;
+          :supervisedBy :Staff1 ;
+          :name "Baby"^^xsd:string .
+
+
+###  http://www.semanticweb.org/baby/ontologies/2019/4/university#Student2
+:Student2 rdf:type owl:NamedIndividual ,
+                   :Student ;
+          :studies :Course1 ;
+          :name "Barry"^^xsd:string .
+
+
+###  http://www.semanticweb.org/baby/ontologies/2019/4/university#Student3
+:Student3 rdf:type owl:NamedIndividual ,
+                   :Student ;
+          :studies :Course3 ;
+          :name "Michael"^^xsd:string .
+
+
+###  http://www.semanticweb.org/baby/ontologies/2019/4/university#StudyProgram1
+:StudyProgram1 rdf:type owl:NamedIndividual ,
+                        :StudyProgram ;
+               :studyprogramName "informatics"^^xsd:string .
+
+
+###  http://www.semanticweb.org/baby/ontologies/2019/4/university#StudyProgramLeader1
+:StudyProgramLeader1 rdf:type owl:NamedIndividual ,
+                              :StudyProgramLeader ;
+                     :lead :StudyProgram1 .
+
+
+###  http://www.semanticweb.org/baby/ontologies/2019/4/university#University1
+:University1 rdf:type owl:NamedIndividual ,
+                      :University ;
+             :universityName "Padjadjaran"^^xsd:string .
+
+
+###  http://www.semanticweb.org/baby/ontologies/2019/4/university#UniversityLeader1
+:UniversityLeader1 rdf:type owl:NamedIndividual ,
+                            :UniversityLeader ;
+                   :lead :University1 .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

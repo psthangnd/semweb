@@ -1,0 +1,407 @@
+@prefix : <http://www.semanticweb.org/enhush/ontologies/2018/4/university-ontology#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/enhush/ontologies/2018/4/university-ontology> .
+
+<http://www.semanticweb.org/enhush/ontologies/2018/4/university-ontology> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/enhush/ontologies/2018/4/university-ontology#ажил_хийх
+:ажил_хийх rdf:type owl:ObjectProperty ;
+           rdfs:domain :Ажилчин ;
+           rdfs:range :Ажил .
+
+
+###  http://www.semanticweb.org/enhush/ontologies/2018/4/university-ontology#бакалаврын_зэрэг_авах
+:бакалаврын_зэрэг_авах rdf:type owl:ObjectProperty ;
+                       rdfs:domain [ rdf:type owl:Restriction ;
+                                     owl:onProperty :бакалаврын_зэрэг_авах ;
+                                     owl:someValuesFrom :Хүн
+                                   ] ;
+                       rdfs:range [ rdf:type owl:Restriction ;
+                                    owl:onProperty :бакалаврын_зэрэг_авах ;
+                                    owl:someValuesFrom :Их_сургууль
+                                  ] .
+
+
+###  http://www.semanticweb.org/enhush/ontologies/2018/4/university-ontology#бүрдэх
+:бүрдэх rdf:type owl:ObjectProperty ;
+        owl:inverseOf :харьяалагдах ;
+        rdfs:domain :Их_сургууль ,
+                    :Салбар_сургууль ;
+        rdfs:range :Салбар_сургууль ,
+                   :Тэнхим .
+
+
+###  http://www.semanticweb.org/enhush/ontologies/2018/4/university-ontology#докторын_зэрэг_авах
+:докторын_зэрэг_авах rdf:type owl:ObjectProperty ;
+                     rdfs:domain [ rdf:type owl:Restriction ;
+                                   owl:onProperty :зөвлөх ;
+                                   owl:someValuesFrom :Хүн
+                                 ] ;
+                     rdfs:range [ rdf:type owl:Restriction ;
+                                  owl:onProperty :зөвлөх ;
+                                  owl:someValuesFrom :Их_сургууль
+                                ] .
+
+
+###  http://www.semanticweb.org/enhush/ontologies/2018/4/university-ontology#заах
+:заах rdf:type owl:ObjectProperty ;
+      owl:inverseOf :үзэх ;
+      rdfs:domain [ rdf:type owl:Restriction ;
+                    owl:onProperty :зөвлөх ;
+                    owl:someValuesFrom :Багш
+                  ] ;
+      rdfs:range [ rdf:type owl:Restriction ;
+                   owl:onProperty :зөвлөх ;
+                   owl:someValuesFrom :Хичээл
+                 ] .
+
+
+###  http://www.semanticweb.org/enhush/ontologies/2018/4/university-ontology#зэрэг_авах
+:зэрэг_авах rdf:type owl:ObjectProperty ;
+            owl:inverseOf :зэрэг_өгөх ;
+            rdfs:domain :Хүн .
+
+
+###  http://www.semanticweb.org/enhush/ontologies/2018/4/university-ontology#зэрэг_өгөх
+:зэрэг_өгөх rdf:type owl:ObjectProperty ;
+            rdfs:domain :Их_сургууль ;
+            rdfs:range :Хүн .
+
+
+###  http://www.semanticweb.org/enhush/ontologies/2018/4/university-ontology#зэрэглэл_өндөр
+:зэрэглэл_өндөр rdf:type owl:ObjectProperty ,
+                         owl:AsymmetricProperty ;
+                rdfs:domain :Профессор ;
+                rdfs:range :Лаборант .
+
+
+###  http://www.semanticweb.org/enhush/ontologies/2018/4/university-ontology#зөвлөх
+:зөвлөх rdf:type owl:ObjectProperty ;
+        rdfs:domain [ rdf:type owl:Restriction ;
+                      owl:onProperty :зөвлөх ;
+                      owl:someValuesFrom :Профессор
+                    ] ;
+        rdfs:range [ rdf:type owl:Restriction ;
+                     owl:onProperty :зөвлөх ;
+                     owl:someValuesFrom :Оюутан
+                   ] .
+
+
+###  http://www.semanticweb.org/enhush/ontologies/2018/4/university-ontology#мастерын_зэрэг_авах
+:мастерын_зэрэг_авах rdf:type owl:ObjectProperty ;
+                     rdfs:domain [ rdf:type owl:Restriction ;
+                                   owl:onProperty :зөвлөх ;
+                                   owl:someValuesFrom :Хүн
+                                 ] ;
+                     rdfs:range [ rdf:type owl:Restriction ;
+                                  owl:onProperty :зөвлөх ;
+                                  owl:someValuesFrom :Их_сургууль
+                                ] .
+
+
+###  http://www.semanticweb.org/enhush/ontologies/2018/4/university-ontology#судалгааны_чиглэлтэй
+:судалгааны_чиглэлтэй rdf:type owl:ObjectProperty ;
+                      rdfs:domain :Профессор ;
+                      rdfs:range :Судалгаа .
+
+
+###  http://www.semanticweb.org/enhush/ontologies/2018/4/university-ontology#судлах
+:судлах rdf:type owl:ObjectProperty ;
+        rdfs:domain [ rdf:type owl:Restriction ;
+                      owl:onProperty :зөвлөх ;
+                      owl:someValuesFrom :Хүн
+                    ] ;
+        rdfs:range [ rdf:type owl:Restriction ;
+                     owl:onProperty :зөвлөх ;
+                     owl:someValuesFrom :Судалгаа
+                   ] .
+
+
+###  http://www.semanticweb.org/enhush/ontologies/2018/4/university-ontology#удирдах
+:удирдах rdf:type owl:ObjectProperty ;
+         rdfs:domain :Удирдах_ажилчин ;
+         rdfs:range :Их_сургууль .
+
+
+###  http://www.semanticweb.org/enhush/ontologies/2018/4/university-ontology#харьяалагдах
+:харьяалагдах rdf:type owl:ObjectProperty ;
+              rdfs:domain :Салбар_сургууль ,
+                          :Тэнхим ;
+              rdfs:range :Их_сургууль ,
+                         :Салбар_сургууль .
+
+
+###  http://www.semanticweb.org/enhush/ontologies/2018/4/university-ontology#хуваарь_гаргах
+:хуваарь_гаргах rdf:type owl:ObjectProperty ;
+                rdfs:domain [ rdf:type owl:Restriction ;
+                              owl:onProperty :зөвлөх ;
+                              owl:someValuesFrom :Их_сургууль
+                            ] ;
+                rdfs:range [ rdf:type owl:Restriction ;
+                             owl:onProperty :зөвлөх ;
+                             owl:someValuesFrom :Хичээл
+                           ] .
+
+
+###  http://www.semanticweb.org/enhush/ontologies/2018/4/university-ontology#хэвлэгдэх
+:хэвлэгдэх rdf:type owl:ObjectProperty ;
+           rdfs:domain :Судалгаа ;
+           rdfs:range :Судалгааны_хэвлэл .
+
+
+###  http://www.semanticweb.org/enhush/ontologies/2018/4/university-ontology#хэвлүүлэх
+:хэвлүүлэх rdf:type owl:ObjectProperty ;
+           rdfs:domain :Хүн ;
+           rdfs:range :Судалгааны_хэвлэл .
+
+
+###  http://www.semanticweb.org/enhush/ontologies/2018/4/university-ontology#үзэх
+:үзэх rdf:type owl:ObjectProperty ;
+      rdfs:domain [ rdf:type owl:Restriction ;
+                    owl:onProperty :зөвлөх ;
+                    owl:someValuesFrom :Оюутан
+                  ] ;
+      rdfs:range [ rdf:type owl:Restriction ;
+                   owl:onProperty :зөвлөх ;
+                   owl:someValuesFrom :Хичээл
+                 ] .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/enhush/ontologies/2018/4/university-ontology#докторын_зэрэг
+:докторын_зэрэг rdf:type owl:DatatypeProperty ;
+                rdfs:domain :Хүн ;
+                rdfs:range rdfs:Literal .
+
+
+###  http://www.semanticweb.org/enhush/ontologies/2018/4/university-ontology#жинхэлсэн_эсэх
+:жинхэлсэн_эсэх rdf:type owl:DatatypeProperty ;
+                rdfs:domain :Ажилчин ;
+                rdfs:range xsd:boolean .
+
+
+###  http://www.semanticweb.org/enhush/ontologies/2018/4/university-ontology#магистрын_зэрэг
+:магистрын_зэрэг rdf:type owl:DatatypeProperty ;
+                 rdfs:domain :Хүн ;
+                 rdfs:range rdfs:Literal .
+
+
+###  http://www.semanticweb.org/enhush/ontologies/2018/4/university-ontology#нэр
+:нэр rdf:type owl:DatatypeProperty ;
+     rdfs:domain :Хүн ;
+     rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/enhush/ontologies/2018/4/university-ontology#судалгааны_чиглэл
+:судалгааны_чиглэл rdf:type owl:DatatypeProperty ;
+                   rdfs:domain :Профессор ;
+                   rdfs:range rdf:PlainLiteral .
+
+
+###  http://www.semanticweb.org/enhush/ontologies/2018/4/university-ontology#хаяг
+:хаяг rdf:type owl:DatatypeProperty ;
+      rdfs:domain :Их_сургууль ;
+      rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/enhush/ontologies/2018/4/university-ontology#хэвлэлийн_нэр
+:хэвлэлийн_нэр rdf:type owl:DatatypeProperty ;
+               rdfs:domain :Судалгааны_хэвлэл ;
+               rdfs:range rdf:PlainLiteral .
+
+
+###  http://www.semanticweb.org/enhush/ontologies/2018/4/university-ontology#хэвлэсэн_огноо
+:хэвлэсэн_огноо rdf:type owl:DatatypeProperty ;
+                rdfs:domain :Судалгааны_хэвлэл ;
+                rdfs:range xsd:dateTime .
+
+
+###  http://www.semanticweb.org/enhush/ontologies/2018/4/university-ontology#цахим_шуудан
+:цахим_шуудан rdf:type owl:DatatypeProperty ;
+              rdfs:domain :Хүн ;
+              rdfs:range xsd:string .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/enhush/ontologies/2018/4/university-ontology#Ажил
+:Ажил rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/enhush/ontologies/2018/4/university-ontology#Ажилчин
+:Ажилчин rdf:type owl:Class ;
+         rdfs:subClassOf :Хүн .
+
+
+###  http://www.semanticweb.org/enhush/ontologies/2018/4/university-ontology#Багш
+:Багш rdf:type owl:Class ;
+      owl:equivalentClass [ rdf:type owl:Restriction ;
+                            owl:onProperty :заах ;
+                            owl:someValuesFrom :Хичээл
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :зөвлөх ;
+                            owl:someValuesFrom :Оюутан
+                          ] ;
+      rdfs:subClassOf :Ажилчин .
+
+
+###  http://www.semanticweb.org/enhush/ontologies/2018/4/university-ontology#Бакалаврын_ажил
+:Бакалаврын_ажил rdf:type owl:Class ;
+                 rdfs:subClassOf :Шинжлэх_ухааны_бүтээл .
+
+
+###  http://www.semanticweb.org/enhush/ontologies/2018/4/university-ontology#Докторын_ажил
+:Докторын_ажил rdf:type owl:Class ;
+               rdfs:subClassOf :Шинжлэх_ухааны_бүтээл .
+
+
+###  http://www.semanticweb.org/enhush/ontologies/2018/4/university-ontology#Дэд_профессор
+:Дэд_профессор rdf:type owl:Class ;
+               rdfs:subClassOf :Профессор .
+
+
+###  http://www.semanticweb.org/enhush/ontologies/2018/4/university-ontology#Захирал
+:Захирал rdf:type owl:Class ;
+         rdfs:subClassOf :Удирдах_ажилчин .
+
+
+###  http://www.semanticweb.org/enhush/ontologies/2018/4/university-ontology#Зочин_профессор
+:Зочин_профессор rdf:type owl:Class ;
+                 rdfs:subClassOf :Профессор .
+
+
+###  http://www.semanticweb.org/enhush/ontologies/2018/4/university-ontology#Их_сургууль
+:Их_сургууль rdf:type owl:Class ;
+             owl:equivalentClass [ rdf:type owl:Restriction ;
+                                   owl:onProperty :бүрдэх ;
+                                   owl:someValuesFrom :Салбар_сургууль
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :бүрдэх ;
+                                   owl:someValuesFrom :Тэнхим
+                                 ] .
+
+
+###  http://www.semanticweb.org/enhush/ontologies/2018/4/university-ontology#Лаборант
+:Лаборант rdf:type owl:Class ;
+          rdfs:subClassOf :Багш ;
+          owl:disjointWith :Профессор ,
+                           :Удирдах_ажилчин .
+
+
+###  http://www.semanticweb.org/enhush/ontologies/2018/4/university-ontology#Лектор
+:Лектор rdf:type owl:Class ;
+        rdfs:subClassOf :Багш .
+
+
+###  http://www.semanticweb.org/enhush/ontologies/2018/4/university-ontology#Магистрын_ажил
+:Магистрын_ажил rdf:type owl:Class ;
+                rdfs:subClassOf :Шинжлэх_ухааны_бүтээл .
+
+
+###  http://www.semanticweb.org/enhush/ontologies/2018/4/university-ontology#Ном
+:Ном rdf:type owl:Class ;
+     rdfs:subClassOf :Судалгааны_хэвлэл .
+
+
+###  http://www.semanticweb.org/enhush/ontologies/2018/4/university-ontology#Оюутан
+:Оюутан rdf:type owl:Class ;
+        owl:equivalentClass [ rdf:type owl:Restriction ;
+                              owl:onProperty :үзэх ;
+                              owl:someValuesFrom :Хичээл
+                            ] ;
+        rdfs:subClassOf :Хүн ;
+        owl:disjointWith :Удирдах_ажилчин .
+
+
+###  http://www.semanticweb.org/enhush/ontologies/2018/4/university-ontology#Профессор
+:Профессор rdf:type owl:Class ;
+           rdfs:subClassOf :Багш .
+
+
+###  http://www.semanticweb.org/enhush/ontologies/2018/4/university-ontology#Салбар_сургууль
+:Салбар_сургууль rdf:type owl:Class ;
+                 rdfs:subClassOf :Их_сургууль .
+
+
+###  http://www.semanticweb.org/enhush/ontologies/2018/4/university-ontology#Судалгаа
+:Судалгаа rdf:type owl:Class ;
+          rdfs:subClassOf :Ажил .
+
+
+###  http://www.semanticweb.org/enhush/ontologies/2018/4/university-ontology#Судалгааны_хэвлэл
+:Судалгааны_хэвлэл rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/enhush/ontologies/2018/4/university-ontology#Сэтгүүлийн_өгүүлэл
+:Сэтгүүлийн_өгүүлэл rdf:type owl:Class ;
+                    rdfs:subClassOf :Өгүүлэл .
+
+
+###  http://www.semanticweb.org/enhush/ontologies/2018/4/university-ontology#Туслах_профессор
+:Туслах_профессор rdf:type owl:Class ;
+                  rdfs:subClassOf :Профессор .
+
+
+###  http://www.semanticweb.org/enhush/ontologies/2018/4/university-ontology#Тэнхим
+:Тэнхим rdf:type owl:Class ;
+        rdfs:subClassOf :Салбар_сургууль .
+
+
+###  http://www.semanticweb.org/enhush/ontologies/2018/4/university-ontology#Тэнхимийн_эрхлэгч
+:Тэнхимийн_эрхлэгч rdf:type owl:Class ;
+                   rdfs:subClassOf :Удирдах_ажилчин .
+
+
+###  http://www.semanticweb.org/enhush/ontologies/2018/4/university-ontology#Удирдах_ажилчин
+:Удирдах_ажилчин rdf:type owl:Class ;
+                 rdfs:subClassOf :Ажилчин .
+
+
+###  http://www.semanticweb.org/enhush/ontologies/2018/4/university-ontology#Хичээл
+:Хичээл rdf:type owl:Class ;
+        rdfs:subClassOf :Ажил ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :заах ;
+                          owl:someValuesFrom :Багш
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :үзэх ;
+                          owl:someValuesFrom :Оюутан
+                        ] .
+
+
+###  http://www.semanticweb.org/enhush/ontologies/2018/4/university-ontology#Хурлын_өгүүлэл
+:Хурлын_өгүүлэл rdf:type owl:Class ;
+                rdfs:subClassOf :Өгүүлэл .
+
+
+###  http://www.semanticweb.org/enhush/ontologies/2018/4/university-ontology#Хүн
+:Хүн rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/enhush/ontologies/2018/4/university-ontology#Шинжлэх_ухааны_бүтээл
+:Шинжлэх_ухааны_бүтээл rdf:type owl:Class ;
+                       rdfs:subClassOf :Судалгааны_хэвлэл .
+
+
+###  http://www.semanticweb.org/enhush/ontologies/2018/4/university-ontology#Өгүүлэл
+:Өгүүлэл rdf:type owl:Class ;
+         rdfs:subClassOf :Судалгааны_хэвлэл .
+
+
+###  Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi

@@ -1,0 +1,9 @@
+PREFIX table:<http://www.semanticweb.org/hp/ontologies/2021/1/university#>
+
+SELECT ?name ?course ?date
+WHERE { 
+	?university table:employs ?name .
+	?name table:enrolledFor ?course .
+	?name table:joinedOn ?date .
+}
+ORDER BY ?date ?name

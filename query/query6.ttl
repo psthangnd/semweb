@@ -1,0 +1,9 @@
+PREFIX table:<http://www.semanticweb.org/hp/ontologies/2021/1/university#>
+
+SELECT ?name ?id
+WHERE { 
+	?university table:admits ?name .
+	?name table:studentID ?id .
+}
+ORDER BY ASC(?id)
+LIMIT 5
