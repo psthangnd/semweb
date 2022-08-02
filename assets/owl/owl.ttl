@@ -1,0 +1,87 @@
+owl:disjointWith
+    2 lớp không gian cắt
+    Không có phần tử chung
+    Ví dụ: :man owl:disjointWith :women
+owl:equivalentClass
+    Cho rằng 2 lớp là tương đương (phần tử thuộc A thì sẽ thuộc B)
+    Mỗi lớp đều có các phần tử giống nhau
+owl:thing
+    Lớp khái quát nhất, chứa tất cả mọi thứ
+owl:nothing
+    Lớp rỗng
+owl:restriction
+    Được sử dụng để mô tả lớp
+owl:onProperty
+
+owl:minCardinality
+    Giá trị tối thiều sẽ setting cho Property
+    Ví dụ:
+        :parent owl:equivalentClass owl:intersectionOf(:Person
+            [
+                a owl:Restriction;
+                owl:onProperty :hasChild;
+                owl:minCardinality "1"
+            ])
+owl:intersectionOf
+    C1 là giao của C2, C3, C4:
+    :C1 owl:intersectionOf(:C2 :C3 :C4)
+    :HarryPoster a owl:Class;
+        ([
+            a owl:Restriction;
+            owl:onProperty :ownedBy;
+            owl:hasValue :Paul
+        ]
+        :Movie) .
+owl:allValuesFrom
+    Tất cả giá trị từ ...
+    Ví dụ:
+        :matchCourse owl:equivalentClass [
+            owl:onProperty :ownsMovie ;
+            owl:allValuesFrom :JamesDeanMovie
+        ] .
+
+owl:hasValue
+    Có giá trị thuộc tính cụ thể
+    :Man owl:equivalentClass
+        owl:intersectionOf (
+            :Person,
+            [
+                a owl:Restriction;
+                owl:onProperty :sex;
+                owl:hasValue "male"
+            ]
+        ) .
+owl:sameValueFrom ????
+owl:TransitiveProperty
+    Thuộc tính bắc cầu
+    (a+b) = (b+c) thì (b+c) = (a+b)
+owl:SysmmetricProperty
+    Tính đối xứng
+    :A friend :B thì :B là friend :A
+owl:FunctionalProperty
+    1 thuộc tính có tối đa 1 giá trị
+    Ví dụ: đối tượng người chỉ có 1 giá trị "tuổi", "chiều cao"
+owl:inverseFunctionalProperty
+    1 đối tượng có nhiều giá trị
+owl:oneOf
+    Thuộc tính nhận 1 giá trị trong số
+    :greatZeroLessTen owl:oneOf(1 2 3 4 5 6 7 8 9)
+
+
+
+
+owl có 2 loại thuộc tính
+    ObjectType: Gắn kết giữa Object với Object
+        Ví dụ: :isToughtBy
+    DataType: Gắn kết Object với data
+
+Tính chất nghịch đảo:
+    :teaches a ... ;
+        owl:inverseOf :isToughtBy
+    => :teaches owl:inverseOf :isToughtBy
+
+Mệnh đề:
+    {?A rdfs:subPropertyOf ?B .}
+    {?B rdfs:subPropertyOf ?A .}
+    <=> {?A owl:equivalentProperty ?B .}
+
