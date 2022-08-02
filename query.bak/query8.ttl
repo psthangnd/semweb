@@ -1,0 +1,7 @@
+PREFIX table:<http://www.semanticweb.org/hp/ontologies/2021/1/university#>
+
+SELECT ?name ?credit
+WHERE { 
+	?university table:admits ?name .
+	FILTER NOT EXISTS { ?name table:hasCredit ?credit . }
+}

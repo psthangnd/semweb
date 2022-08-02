@@ -1,0 +1,2 @@
+PREFIX table:<http://www.semanticweb.org/hp/ontologies/2021/1/university#>
+DESCRIBE table:studentID

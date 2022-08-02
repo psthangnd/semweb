@@ -16,6 +16,7 @@ https://github.com/SmartDataAnalytics
 - Download:
 https://www.oracle.com/java/technologies/downloads/#jdk18-windows
 (C:\Program Files\Java\jdk-18.0.2\)
+- (Add classPath)
 - Confirm:
 	java --version
 	where java
