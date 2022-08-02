@@ -1,0 +1,21 @@
+<rdf:RDF
+      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+      xmlns:owl="http://www.w3.org/2002/07/owl#" >
+
+<owl:Class rdf:about="Professor">
+	<rdfs:subClassOf>
+		<owl:Class>
+			<owl:unionOf rdf:parseType="Collection">
+                <owl:intersectionOf rdf:parseType="Collection">
+					<owl:Class rdf:about="Person" />
+					<owl:Class rdf:about="FacultyMember" />
+				</owl:intersectionOf>
+                <owl:intersectionOf rdf:parseType="Collection">
+					<owl:Class rdf:about="Person" />
+					<owl:complementOf rdf:resource="PhDStudent">
+				</owl:intersectionOf>
+			</owl:unionOf>
+		</owl:Class>
+	</rdfs:subClassOf>
+</owl:Class>

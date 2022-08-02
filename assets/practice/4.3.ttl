@@ -1,0 +1,28 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix th: <http://www.hust.edu.vn/thangnd#> .
+
+
+#1
+th:Pizza rdfs:subClassOf [
+  a owl:Restriction ;
+  owl:onProperty th:hasTopping ;
+  owl:minCardinality "2"
+] .
+
+#2
+th:Pizza rdfs:subClassOf [
+  a owl:Restriction ;
+  owl:onProperty th:hasTopping ;
+  th:hasValue th:tomato
+] .
+
+#3
+th:PizzaMargarita rdfs:subClassOf [
+  a owl:Restriction ;
+  owl:onProperty th:hasTopping ;
+  owl:hasValue (
+    th:tomato
+    th:cheese 
+  )
+] .

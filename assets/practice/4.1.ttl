@@ -1,0 +1,28 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix th: <http://www.hust.edu.vn/thangnd#> .
+
+
+#1
+th:Vegetable rdfs:subClassOf th:PizzaTopping .
+
+#2
+th:PizzaTopping owl:disjointWith th:Pizza .
+
+#3
+th:aubergine a th:Vegetable .
+
+#4
+th:hasTopping a owl:onProperty ;
+    rdfs:domain th:Pizza ;
+    rdfs:range th:PizzaTopping .
+
+#5
+th:VegPizza owl:unionOf  (
+   th:NoMeatPizza 
+   th:NoFishPizza
+ ) .
+
+ #6
+ th:hasTopping rdfs:subPropertyOf th:hasIngredient .
