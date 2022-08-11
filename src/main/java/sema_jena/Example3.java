@@ -3,10 +3,10 @@ package sema_jena;
 import org.apache.jena.ontology.OntModel;
 import org.apache.jena.rdf.model.ModelFactory;
 
-public class Write2OtherFormat {
+public class Example3 {
 
 	public static void main(String[] args) {
-		write2OtherFormat("assets/exam5.4.rdf");
+		write2OtherFormat("assets/foaf-a-matic.rdf");
 	}
 	
 	static void write2OtherFormat(String rdfFile) {

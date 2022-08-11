@@ -1,0 +1,16 @@
+@prefix demo: <urn:x-hp:demo/> .
+
+
+<demo:TransProp rdf:about="&demo;p" />
+    
+<rdf:Description rdf:about="&demo;a">
+  <p rdf:resource="&demo;b" />
+</rdf:Description>
+    
+<rdf:Description rdf:about="&demo;c">
+  <p rdf:resource="&demo;a" />
+</rdf:Description>
+    
+<rdf:Description rdf:about="&demo;b">
+  <p rdf:resource="&demo;d" />
+</rdf:Description>

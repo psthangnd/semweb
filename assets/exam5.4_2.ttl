@@ -1,0 +1,27 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix : <http://hust.edu.vn/semweb#> .
+
+
+:Human rdf:type owl:Class ;
+	rdfs:subClassOf  [
+		rdf:type owl:Restriction ;
+        owl:onProperty :hasMother ;
+        owl:someValuesFrom :Human
+    ] .
+
+:hasMotherMother rdf:type owl:Class ;
+	rdfs:subClassOf :GrandChild ;
+	 owl:equivalentClass [
+	 	rdf:type owl:Restriction ;
+        owl:onProperty :hasMother ;
+        owl:someValuesFrom  [
+        	rdf:type owl:Restriction ;
+            owl:onProperty :hasMother ;
+            owl:someValuesFrom  :Human
+        ]
+     ] .
+     
+:anupriyaAnkolekar rdf:type  :Human .

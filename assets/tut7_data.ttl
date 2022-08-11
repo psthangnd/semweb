@@ -1,0 +1,5 @@
+@prefix demo: <http://jena.hpl.hp.com/demo#> .
+
+demo:c demo:p demo:a . 
+demo:a demo:p demo:b . 
+demo:b demo:p demo:d . 

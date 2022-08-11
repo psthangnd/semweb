@@ -1,7 +1,7 @@
 # https://en.wikipedia.org/wiki/Blank_node
 
-PREFIX ex: <http://www.example.org/>
-PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+@prefix ex: <http://www.example.org/>
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 
 <http://example.org/web-data>
 	ex:title "Web data" ;
