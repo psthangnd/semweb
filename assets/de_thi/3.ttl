@@ -1,0 +1,21 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix : <http://www.hust.edu.vn#> .
+
+:Company a owl:Class .			
+:Person a owl:Class .			
+			
+:worksFor a owl:ObjectProperty;			
+	rdfs:domain :Person;		
+	rdfs:range :Company;		
+	owl:inverseOf :hasEmployee .		
+			
+:ceoOf rdfs:subPropertyOf :worksFor;			
+	rdfs:domain :Person;		
+	rdfs:range :Company;		
+	a owl:InverseFunctionalProperty;		
+	owl:inverseOf :hasCEO .		
+			
+:google :hasCEO :spichai .			
+:sundarPichai :ceoOf :google .			

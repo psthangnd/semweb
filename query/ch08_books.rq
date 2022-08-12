@@ -1,0 +1,38 @@
+# a. Thống kê số lượng sách được viết bởi mỗi tác giả?
+select ?author (COUNT(?book) as ?number_books)
+where {
+	?book ex:author ?author .
+}
+GROUP BY ?author
+
+# b. Tìm tất cả sách được viết bởi Shakespeare hoặc ex:Brooke
+{ ?book ex:price ?price
+  OPTIONAL { ?book ex:title ?title }
+  { ?book ex:author ex:Shakespeare }
+  UNION
+  { ?book ex:author ex:Brooke }
+}
+
+
+# c. Viết biểu thức đại số SPARQL cho kết quả bước b. và thực hiện các bước tính toán
+select ?book ?price ?title
+where { ?book <http://ex.org/price> ?price
+  OPTIONAL { ?book <http://ex.org/title> ?title }
+  { ?book <http://ex.org/author> <http://ex.org/Shakespeare> }
+  UNION
+  { ?book <http://ex.org/author> <http://ex.org/Brooke> }
+}
+
+
+# d. Tìm tất cả sách được viết bởi Shakespeare hoặc ex:Brooke và có giá <15
+prefix ex: <http://eg.org/>
+select ?book ?price ?title
+where { ?book ex:price ?price
+  FILTER (?price < 15)
+  OPTIONAL { ?book ex:title ?title }
+  { ?book ex:author ex:Shakespeare }
+  UNION
+  { ?book ex:author ex:Brooke }
+}
+
+# e. Thực hiện từng bước biểu thức đại số cho ý d.
