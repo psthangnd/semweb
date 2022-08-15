@@ -19,6 +19,7 @@ where { ?book ex:price ?price
   UNION
   { ?book ex:author ex:Brooke }
 }
+# TODO (ket qua bi trung lap)
 
 
 # c. Viết biểu thức đại số SPARQL cho kết quả bước b. và thực hiện các bước tính toán
@@ -29,6 +30,7 @@ where { ?book <http://leg.org/price> ?price
   UNION
   { ?book <http://leg.org/author> <http://leg.org/Brooke> }
 }
+# TODO (ket qua bi trung lap)
 
 
 # d. Tìm tất cả sách được viết bởi Shakespeare hoặc ex:Brooke và có giá <15
