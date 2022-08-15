@@ -1,0 +1,24 @@
+@prefix ex: <http://leg.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:Hamlet ex:author ex:Shakespeare ;
+	ex:price "10.50"^^xsd:decimal .
+	
+ex:Macbeth ex:author ex:Shakespeare .
+
+ex:Tamburlaine ex:author ex:Marlowe ;
+	ex:price "17"^^xsd:integer .
+	
+ex:DoctorFaustus ex:author ex:Marlowe ; 
+	ex:price "12"^^xsd:integer;
+	ex:title "The Tragical History of Doctor Faustus" .
+	
+ex:RomeoJulia ex:author ex:Brooke ; 
+	ex:price "9"^^xsd:integer .
+
+## Đáp án tham khảo file: ch08_books.rq
+# a. Thống kê số lượng sách được viết bởi mỗi tác giả?
+# b. Tìm tất cả sách được viết bởi Shakespeare hoặc ex:Brooke
+# c. Viết biểu thức đại số SPARQL cho kết quả bước b. và thực hiện các bước tính toán
+# d. Tìm tất cả sách được viết bởi Shakespeare hoặc ex:Brooke và có giá <15
+# e. Thực hiện từng bước biểu thức đại số cho ý d.

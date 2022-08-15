@@ -1,0 +1,48 @@
+#Test
+SELECT ?s ?p ?o 
+WHERE {?s ?p ?o}
+
+# a. Thống kê số lượng sách được viết bởi mỗi tác giả?
+PREFIX ex:<http://leg.org/>
+select ?author (COUNT(?book) as ?number_books)
+where {
+	?book ex:author ?author .
+}
+GROUP BY ?author
+
+# b. Tìm tất cả sách được viết bởi Shakespeare hoặc ex:Brooke
+PREFIX ex:<http://leg.org/>
+select ?book ?price ?title
+where { ?book ex:price ?price
+  OPTIONAL { ?book ex:title ?title }
+  { ?book ex:author ex:Shakespeare }
+  UNION
+  { ?book ex:author ex:Brooke }
+}
+# TODO (ket qua bi trung lap)
+
+
+# c. Viết biểu thức đại số SPARQL cho kết quả bước b. và thực hiện các bước tính toán
+select ?book ?price ?title
+where { ?book <http://leg.org/price> ?price
+  OPTIONAL { ?book <http://leg.org/title> ?title }
+  { ?book <http://leg.org/author> <http://leg.org/Shakespeare> }
+  UNION
+  { ?book <http://leg.org/author> <http://leg.org/Brooke> }
+}
+# TODO (ket qua bi trung lap)
+
+
+# d. Tìm tất cả sách được viết bởi Shakespeare hoặc ex:Brooke và có giá <15
+PREFIX ex:<http://leg.org/>
+PREFIX xsd:<http://www.w3.org/2001/XMLSchema#>
+select ?book ?price ?title
+where { ?book ex:price ?price
+  FILTER (?price < "15"^^xsd:integer)
+  OPTIONAL { ?book ex:title ?title }
+  { ?book ex:author ex:Shakespeare }
+  UNION
+  { ?book ex:author ex:Brooke }
+}
+
+# e. Thực hiện từng bước biểu thức đại số cho ý d.

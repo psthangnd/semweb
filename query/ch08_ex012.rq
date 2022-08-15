@@ -1,0 +1,108 @@
+# 1. SELECT
+PREFIX ab: <http://learningsparql.com/ns/addressbook#>
+PREFIX d:  <http://learningsparql.com/ns/data#>
+SELECT ?person ?p ?o
+WHERE 
+{
+  ?person ab:firstName "Craig" ;
+          ab:lastName  "Ellis" ;
+          ?p ?o . 
+}
+
+# 2. CONSTRUCT
+PREFIX ab: <http://learningsparql.com/ns/addressbook#>
+PREFIX d:  <http://learningsparql.com/ns/data#>
+CONSTRUCT
+	{ ?person ?p ?o . }
+WHERE {
+  ?person ab:firstName "Craig" ;
+          ab:lastName  "Ellis" ;
+          ?p ?o . 
+}
+
+# 3. DESCRIBE
+PREFIX d:  <http://learningsparql.com/ns/data#>
+PREFIX ab: <http://learningsparql.com/ns/addressbook#>
+DESCRIBE ?x 
+WHERE { ?x ab:email "craigellis@yahoo.com" . }
+
+# 4. ASK
+PREFIX d:  <http://learningsparql.com/ns/data#>
+PREFIX ab: <http://learningsparql.com/ns/addressbook#>
+ASK WHERE
+{ ?x ab:firstName "Craig" . }
+# => Yes
+
+# 4. OPTIONAL
+Đề bài: Bổ xung các bộ ba sau:
+	d:i88888 ab:email "nva@gmail.com" ; 
+	ab:firstName "Nguyen" ;
+    ab:lastName "Van A" ; 
+	ab:nick "Super" .
+
+PREFIX ab: <http://learningsparql.com/ns/addressbook#> 
+SELECT ?firstName ?last
+WHERE { ?s ab:lastName ?last; ab:firstName ?first . 
+  OPTIONAL { ?s ab:nick ?nickname . }
+  BIND (COALESCE(?nickname,?first) AS ?firstName)
+}
+
+# 5. FILTER
+PREFIX ab: <http://learningsparql.com/ns/addressbook#> 
+SELECT *
+WHERE {
+  ?s ?p ?o . 
+  FILTER (regex(?o, "yahoo","i"))
+}
+
+# 6. UNION (TODO)
+d:i0432 ab:firstName  "Richard" ; 
+		ab:lastName   "Mutt" ;
+        ab:instrument "sax" ; 
+		ab:instrument "clarinet" .
+d:i8301 ab:firstName  "Craig" ; 
+		ab:lastName   "Ellis" ;
+        ab:instrument "trumpet" .
+
+PREFIX ab: <http://learningsparql.com/ns/addressbook#>
+SELECT ?first ?last ?instrument 
+WHERE {
+	{ 
+		?person ab:firstName ?first ; 
+				ab:lastName ?last ;
+				ab:instrument "trumpet" ; 
+				ab:instrument ?instrument .  
+	}
+	UNION
+	{ 	
+		?person ab:firstName ?first ; 
+				ab:lastName ?last ;
+				ab:instrument "sax" ; 
+				ab:instrument ?instrument .  
+	}
+}
+
+# 7. SERVICE
+SELECT ?p ?o 
+WHERE {
+  SERVICE <http://DBpedia.org/sparql>
+	{ 
+		SELECT ?p ?o 
+		WHERE { 
+			<http://dbpedia.org/resource/Joseph_Hocking> ?p ?o . 
+		}  
+	}
+}
+
+# 8. INSERT
+PREFIX d:    <http://learningsparql.com/ns/data#> 
+PREFIX ab: <http://learningsparql.com/ns/addressbook#>
+INSERT DATA 
+{
+	d:99999 ab:firstName "Nguyen" ;
+			ab:lastName "VB" .
+}
+
+#Test
+SELECT ?s ?p ?o 
+WHERE {?s ?p ?o}
