@@ -19,7 +19,10 @@ public class Tut3 {
 	private static String NS = "urn:x-hp:eg/";
 
 	public static void main(String args[]) {
-		run("assets/tut3_data.ttl", "[rule1: (?a eg:p ?b) (?b eg:p ?c) -> (?a eg:p ?c)]");
+		//run("assets/tut3_data.ttl", "[rule1: (?a eg:p ?b) (?b eg:p ?c) -> (?a eg:p ?c)]");
+		if(args.length == 2) {
+			run(args[0], args[1]);
+		}
 	}
 
 	static void run(String fname, String rules) {

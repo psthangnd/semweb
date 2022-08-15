@@ -17,7 +17,10 @@ public class Tut7 {
 	private static String demoURI = "http://jena.hpl.hp.com/demo#";
 
 	public static void main(String[] args) {
-		run("assets/tut7_data.ttl", "assets/tut7_rules.ttl");
+		//run("assets/tut7_data.ttl", "assets/tut7_rules.ttl");
+		if(args.length == 2) {
+			run(args[0], args[1]);
+		}
 	}
 
 	static void run(String fname, String frule) {
