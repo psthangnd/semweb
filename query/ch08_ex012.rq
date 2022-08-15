@@ -55,7 +55,7 @@ WHERE {
   FILTER (regex(?o, "yahoo","i"))
 }
 
-# 6. UNION
+# 6. UNION (TODO)
 d:i0432 ab:firstName  "Richard" ; 
 		ab:lastName   "Mutt" ;
         ab:instrument "sax" ; 
@@ -102,3 +102,7 @@ INSERT DATA
 	d:99999 ab:firstName "Nguyen" ;
 			ab:lastName "VB" .
 }
+
+#Test
+SELECT ?s ?p ?o 
+WHERE {?s ?p ?o}

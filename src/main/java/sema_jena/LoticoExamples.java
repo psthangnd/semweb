@@ -1,18 +1,9 @@
 package sema_jena;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
-
-import org.aksw.jena_sparql_api.algebra.expr.transform.ExprTransformVirtualBnodeUris;
-import org.aksw.jena_sparql_api.rx.SparqlRx;
-import org.apache.jena.query.DatasetFactory;
 import org.apache.jena.query.QueryExecution;
 import org.apache.jena.query.QueryExecutionFactory;
 import org.apache.jena.query.ResultSetFormatter;
 import org.apache.jena.rdf.model.Model;
-import org.apache.jena.rdfconnection.RDFConnection;
-import org.apache.jena.rdfconnection.RDFConnectionFactory;
 import org.apache.jena.riot.RDFDataMgr;
 
 public class LoticoExamples {

@@ -1,5 +1,5 @@
-@prefix ex: <http:/leg.org/> .
-@prefix xsd: <htp:///ww.w3.org/2001/XML.Schemat> .
+@prefix ex: <http://leg.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:Hamlet ex:author ex:Shakespeare ;
 	ex:price "10.50"^^xsd:decimal .
