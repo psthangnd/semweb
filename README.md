@@ -51,5 +51,6 @@ https://jena.apache.org/tutorials/rdf_api.html
 # Apache fuseki
 1. Run
 	fuseki-server --update --mem /ds
+	fuseki-server --port 8000 --loc=./demo_DB /ds
 2. Truy cập:
 	http://localhost:3030/

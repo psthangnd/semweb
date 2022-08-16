@@ -1,0 +1,103 @@
+#Test
+SELECT ?s ?p ?o 
+WHERE {?s ?p ?o}
+
+# 1. Objects which orbit around the sun or around a satellite of the sun.
+PREFIX ex: <http://example.org/>
+select ?planet
+where {
+  { ex:Sun ex:satellite ?planet }
+  UNION
+  { ex:Sun ex:satellite ?o1 .
+    ?o1 ex:satellite ?planet }
+}
+
+#2. Objects with a volume greater than 2*10^10 (km3) together with the object ...
+# V = 4/3*pi*R3
+
+PREFIX ex: <http://example.org/>
+PREFIX f: <http://www.ontotext.com/sparql/functions/>
+select ?s ?parent
+where {
+	?s ex:radius ?r
+  OPTIONAL 
+  { ?parent ex:satellite ?s }
+  FILTER (4/3 * f:pi() * f:pow(?r,3) > 2 * f:pow(10, 10))
+}
+
+
+##C2:
+PREFIX ex: <http://example.org/>
+select ?s ?parent
+where {
+  ?s ex:radius ?r
+  OPTIONAL 
+  { ?parent ex:satellite ?s }
+  BIND( (4/3 * 3.14 * ?r * ?r * ?r) as ?volume)
+  FILTER (?volume > 2 * 10e10)
+}
+
+
+#3. Objects with a satellite for which an English name, diameter greater than 3000
+PREFIX ex: <http://example.org/>
+INSERT DATA  { ex:Fibo ex:name "Fibonassi"@en . }
+
+
+PREFIX ex: <http://example.org/>
+select ?planet ?r
+where {
+  { 
+    ?planet ex:satellite ?o .
+    ?o ex:name ?name .
+    ?planet ex:radius ?r
+  }
+  BIND( 2 * ?r as ?diameter)
+  FILTER (?diameter > 3000)
+  FILTER (lang(?name) = 'en')
+}
+
+#4. Objects with two or more satellites, Assume for this that different URIs denote different objects.
+PREFIX ex: <http://example.org/>
+select ?planet (COUNT(?o) as ?number_satellite)
+where {
+  ?planet ex:satellite ?o .
+}
+GROUP BY ?planet
+HAVING (?number_satellite >= 2)
+
+
+
+# Đại số sparql
+### http://sparql.org/$/validate/query
+PREFIX ex: <http://example.org/>
+select distinct *
+where {
+  ?planet ex:satellite ?o .
+  ?o ex:name ?name .
+  ?planet ex:radius ?radius
+  BIND(lang(?name) as ?lang)
+  BIND(2 * ?radius as ?diameter)
+  FILTER(?lang = "en")
+  FILTER(?diameter > 3000)
+}
+
+
+--RDFS
+Class: Start subClass of "celestial body", Planet, Satellite
+Radius onProperty
+
+
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ex: <http://example.org/> .
+
+ex:Star rdfs:subClassOf ex:celestialBody .
+ex:Planet rdfs:subClassOf ex:celestialBody .
+
+ex:Sun a ex:Star .
+ex:Mars a ex:Planet .
+
+
+# Command (error...)
+fuseki-server --rdfs=planets-schema.ttl --loc=planets.ttl /ds
